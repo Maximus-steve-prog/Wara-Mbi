@@ -10,10 +10,10 @@
     {
       "name": "Jane Smith",
       "message": "hi",
-      "time": "2024-12-15T09:30:00",
+      "time": "2025-04-15T09:30:00",
       "unread": 1,
       "status": "offline",
-      "image": "outgoing-contact.jpg"
+      "image": "myImage.jpg"
     },
     {
       "name": "Bob Johnson",
@@ -21,7 +21,7 @@
       "time": "2024-12-15T08:15:00",
       "unread": 0,
       "status": "online",
-      "image": "outgoing-contact.jpg"
+      "image": "incoming-contact.jpg"
     },
     {
       "name": "Alice Brown",

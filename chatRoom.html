@@ -4,439 +4,564 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
-    <link rel="stylesheet" href="tailwind.min.css">
+    <!-- <link rel="stylesheet" href="tailwind.min.css"> -->
+    <script src="3.4.js"></script>  
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Wara Mbi</title>
 </head>
-<body id="body"  class="bg-white text-gray-800 transition-colors duration-300 flex align-center justify-center  overflow-hidden">
-    <div class="container  rounded-lg py-5 flex flex-row">  
+<body id="body"  class="bg-gray-100 h-screen flex text-gray-800  transition-colors duration-200  overflow-hidden">
+    <div class="container relative h-full p-1 dark:bg-gray-800 rounded-lg flex w-full max-w-10xl ">  
+
         <!-- Contact List Starts-->
-        <div id="contact" class="contact h-full sm:w-full min-w-max max-w-lg list-container bg-white shadow-lg flex flex-col gap-2 px-5 py-2 border border-gray-200 ">
-            <div class="title-app flex py-1 items-center justify-between">
-                <h1 class="text-3xl font-bold text-blue-500">Wara Mbi</h1>
-                <div class="flex items-center gap-8">
-                    <i class="text-xl p-3 bg-gray-200 rounded-lg hover:bg-blue-200 show-search fa-solid fa-magnifying-glass text-gray-500 "></i>
-                    <i class="text-xl p-3 bg-gray-200 rounded-lg hover:bg-blue-200 fa-solid fa-user-plus text-gray-500"></i>
-                    <i class="text-xl p-3 bg-gray-200 rounded-lg hover:bg-blue-200 fa-solid fa-ellipsis-vertical text-gray-500"></i>
+        <div id="contact" class="contact relative max-w-xl min-w-min shadow-sm  overflow-hidden w-full h-full list-container bg-white dark:bg-gray-800 flex flex-col gap-2 px-5 py-2">
+            <div class="title-app flex px-4 py-3 items-center justify-between">
+                <h1 class="text-3xl font-bold text-blue-500 dark:text-blue-300">Wara Mbi</h1>
+                <div class="flex items-center gap-5">
+                    <i class="text-xl w-12 h-12 flex items-center justify-center bg-gray-200 rounded-lg hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 show-search fa-solid fa-magnifying-glass text-gray-500 dark:text-gray-400"></i>
+                    <i class="text-xl w-12 h-12 flex items-center justify-center bg-gray-200 rounded-lg hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 fa-solid fa-user-plus text-gray-500 dark:text-gray-400"></i>
+                    <i class="text-xl toggle-user-profile w-12 h-12 flex items-center justify-center bg-gray-200 rounded-lg hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 fa-solid fa-ellipsis-vertical text-gray-500 dark:text-gray-400"></i>
                 </div>
             </div>
-            <div class="search flex items-center ">
-                <input type="text" id="search" placeholder="Search" class="flex-1 border-2 border-gray-500 rounded-lg p-3  "/>
-                <i class="fa-solid fa-magnifying-glass text-gray-500 ml-2"></i>
+            <div class="search flex items-center dark:bg-gray-800 bg-white shadow-sm px-4 py-29
+             mb-2">
+                <input type="text" id="search" placeholder="Search" class="flex-1 border-2 border-gray-500 rounded-lg p-3 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-gray-300" />
+                <i class="fa-solid fa-magnifying-glass text-gray-500 ml-2 dark:text-gray-400"></i>
             </div>
-
+        
             <div class="contact-list gap-2 flex flex-col relative overflow-y-auto h-full " id="contact-list">
                 <!-- Contacts will be dynamically inserted here -->
             </div>
             <div class="filter-list flex items-center justify-between ">
-                <div class="filter-item rounded-xl hover:bg-blue-200 px-4 py-2 flex items-center gap-2 cursor-pointer">
-                    <i class="fa-solid fa-user text-gray-500"></i>
-                    <span class="text-gray-500">All Contacts</span>
+                <div class="filter-item rounded-xl hover:bg-blue-200 dark:hover:bg-blue-600 px-4 py-2 flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-user text-gray-500 dark:text-gray-400"></i>
+                    <span class="text-gray-500 dark:text-gray-300">All Contacts</span>
                 </div>
-                <div class="filter-item rounded-xl hover:bg-blue-200 px-4 py-2 flex items-center gap-2 cursor-pointer">
-                    <i class="fa-solid fa-user-friends text-gray-500"></i>
-                    <span class="text-gray-500">Groups</span>
+                <div class="filter-item rounded-xl hover:bg-blue-200 dark:hover:bg-blue-600 px-4 py-2 flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-user-friends text-gray-500 dark:text-gray-400"></i>
+                    <span class="text-gray-500 dark:text-gray-300">Groups</span>
                 </div>
-                <div class="filter-item rounded-xl hover:bg-blue-200 px-4 py-2 flex items-center gap-2 cursor-pointer">
-                    <i class="fa-solid fa-star text-gray-500"></i>
-                    <span class="text-gray-500">Favorites</span>
+                <div class="filter-item rounded-xl hover:bg-blue-200 dark:hover:bg-blue-600 px-4 py-2 flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-star text-gray-500 dark:text-gray-400"></i>
+                    <span class="text-gray-500 dark:text-gray-300">Favorites</span>
                 </div>
             </div>
+
+            <!-- User Personal info Starts -->
+            <div class="user-profile absolute top-0 left-0 w-full h-full">
+                <div class="profile-outgoing w-5/6  gap-2 h-full bg-white dark:bg-gray-800 shadow-md flex flex-col p-3">
+                    <div class="flex gap-2 bg-white dark:bg-gray-700 p-3 rounded-lg shadow-sm">
+                        <div class="user-info w-full flex flex-col gap-2 ">
+                            <img src="outgoing-contact.jpg" class="w-20 h-20 rounded-full border dark:border-gray-600" alt="">
+                            <div class="flex w-full justify-between">
+                                <div class="basic-info flex flex-col">
+                                    <span class="font-medium text-black dark:text-white">Steve Crown</span>
+                                    <span class="text-gray-500 dark:text-gray-400">+237 688 086 860</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col py-2 justify-between">
+                            <!-- <i class="dark-mode fa fa-moon text-2xl cursor-pointer p-3 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg"></i> -->
+                             
+                            <i class="fa fa-edit text-2xl cursor-pointer p-3 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg"></i>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-5 h-full">
+                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-2 p-5">
+                            <i class="fa-solid fa-user text-gray-500 dark:text-gray-400"></i>
+                            <span class="text-gray-500 dark:text-gray-300">My Profile</span>
+                        </div>
+                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-2 p-5">
+                            <i class="fa-solid fa-cog text-gray-500 dark:text-gray-400"></i>
+                            <span class="text-gray-500 dark:text-gray-300">Settings</span>
+                        </div>
+                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-2 p-5">
+                            <i class="fa-solid fa-bell text-gray-500 dark:text-gray-400"></i>
+                            <span class="text-gray-500 dark:text-gray-300">Notifications</span>
+                        </div>
+                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-2 p-5">
+                            <i class="fa-solid fa-user-plus text-gray-500 dark:text-gray-400"></i>
+                            <span class="text-gray-500 dark:text-gray-300">Add a contact</span>
+                        </div>
+                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-2 p-5">
+                            <i class="fa-solid fa-shield-alt text-gray-500 dark:text-gray-400"></i>
+                            <span class="text-gray-500 dark:text-gray-300">Security</span>
+                        </div>
+                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-2 p-5">
+                            <i class="fa-solid fa-lock text-gray-500 dark:text-gray-400"></i>
+                            <span class="text-gray-500 dark:text-gray-300">Privacy</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center p-2">
+                        <span class="text-gray-500 dark:text-gray-400">Last seen: 10:00 AM</span>
+                        <i class="fa-solid fa-sign-out-alt text-2xl text-gray-500 dark:text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- User Personal Info Ends -->
+
         </div>
         <!-- Contact List Ends -->
 
-         <!-- Chat zone starts -->
-        <div class="chat-room flex flex-col bg-white w-full h-full" id="chat">
-                <div class="header-chat p-5 flex justify-between items-center">
-                    <div class="header flex items-center gap-2">
-                        <i class="cursor-pointer fa-solid fa-arrow-left text-gray-600" id="back"></i>
-                        <img src="outgoing-contact.jpg" class="w-12 rounded-full border" alt="">
-                        <span class="md:text-xl font-medium">Steve Crown</span>
-                    </div>
-                    <div class="header-icons flex items-center gap-5">
-                    <i class="p-3 bg-gray-200 rounded-lg hover:bg-blue-200 cursor-pointer fa-solid fa-phone text-xl"></i>
-                    <i class="p-3 bg-gray-200 rounded-lg hover:bg-blue-200 cursor-pointer fa-solid fa-video text-xl"></i>
-                    <!-- <i class="p-3 bg-gray-200 rounded-lg hover:bg-blue-200 cursor-pointer fa-solid fa-gear text-xl"></i> -->
-                    <i id="darkModeToggle" class="p-3 bg-gray-200 rounded-lg hover:bg-blue-200 cursor-pointer fas fa-moon text-xl"></i>
+        <!-- User Selected Profile Starts -->
+        <div class="user-profile-bg absolute w-full h-full  z-10  flex items-center justify-center hidden">
+            <div class="relative w-80 h-80 bg-white dark:bg-gray-800 shadow-md flex flex-col gap-2 ">
+                <div class="flex relative gap-2 bg-white dark:bg-gray-700 h-full p-3 rounded-lg shadow-sm">
+                        <img src="outgoing-contact.jpg" class="w-full h-full object-cover  dark:border-gray-600" alt="">
+                      
+                        <div class="basic-info flex flex-col absolute top-0 left-0  bg-black bg-opacity-70 p-3 w-full ">
+                            <span class="font-medium text-black dark:text-white user-name">Steve Crown</span>
+                        </div>
+                        <div class="basic-info flex justify-around absolute bottom-0 left-0  bg-black bg-opacity-70 p-4 w-full ">
+                            <i class="fa fa-comment-dots dark:text-white text-xl"></i>
+                            <i class="fa fa-phone start-voice-call-btn dark:text-white text-xl"></i>
+                            <i class="fa fa-video start-video-call-btn dark:text-white text-xl"></i>
+                            <i class="fa-solid fa-circle-info show-incoming-info dark:text-white text-xl"></i>
+                        </div>
+                      
+                </div>
+            </div>   
+        </div>
+        <!-- User Selected Profile Ends -->
+
+        <!-- Chat zone starts -->
+        <div class="chat-room relative flex flex-col bg-white dark:bg-gray-800 w-full h-full overflow-hidden" id="chat">
+            
+            <!-- Chat Room header Starts -->
+            <div class="header-chat p-2 flex justify-between items-center">
+                <div class="header flex items-center gap-2">
+                    <i class="cursor-pointer fa-solid fa-arrow-left text-gray-600 dark:text-gray-300" id="back"></i>
+                    <img src="outgoing-contact.jpg" class="w-14 rounded-full border dark:border-gray-600 show-incoming-info"  alt="">
+                    <div class="flex flex-col">
+                        <span class="text-gray-600 dark:text-gray-300">John Doe</span>
+                        <span class="text-gray-600 dark:text-gray-300">Online</span>
                     </div>
                 </div>
-                <div class="conversation w-full h-full relative overflow-y-auto p-4 space-y-4">
-                    <!-- Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>This is an outgoing message.</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:00 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                    
-                    <!-- Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>This is an incoming message.</p>
+                <div class="header-icons flex items-center gap-4">
+                    <i class="start-voice-call-btn bg-gray-200 rounded-lg  w-12 h-12 flex items-center justify-center hover:bg-blue-200 cursor-pointer text-xl dark:bg-gray-700 hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 dark:text-gray-200 fa-solid fa-phone"></i>
+                    <i class="text-xl toggle-user-profile w-12 h-12 flex items-center justify-center bg-gray-200 rounded-lg hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 fa-solid fa-ellipsis-vertical text-gray-500 dark:text-gray-400"></i>
+                </div>
+            </div>
+            <!-- Chat Room header Ends -->
+
+
+            <!-- Conversation zone starts -->
+            <div class="conversation bg-gray-100 dark:bg-gray-900 w-full h-full  overflow-y-auto p-4 space-y-4">
+                <!-- Outgoing Message -->
+                <div class="flex justify-end mb-4">
+                    <div class="flex items-end">
+                        <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
+                            <p>This is an outgoing message.</p>
                             <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:02 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
+                                <span class="text-xs text-gray-300">10:00 AM</span>
+                                <i class="fas fa-check-double text-white ml-2"></i>
                             </div>
                         </div>
+                        <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2 dark:border-gray-600">
                     </div>
-                
-                    <!-- Another Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>Here's another outgoing message!</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:05 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                
-                    <!-- Another Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>Here's another incoming message!</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:07 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>This is an outgoing message.</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:00 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                    
-                    <!-- Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>This is an incoming message.</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:02 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Another Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>Here's another outgoing message!</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:05 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                
-                    <!-- Another Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>Here's another incoming message!</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:07 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>This is an outgoing message.</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:00 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                    
-                    <!-- Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>This is an incoming message.</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:02 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Another Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>Here's another outgoing message!</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:05 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                
-                    <!-- Another Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>Here's another incoming message!</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:07 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>This is an outgoing message.</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:00 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                    
-                    <!-- Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>This is an incoming message.</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:02 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Another Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>Here's another outgoing message!</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:05 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                
-                    <!-- Another Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>Here's another incoming message!</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:07 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>This is an outgoing message.</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:00 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                    
-                    <!-- Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>This is an incoming message.</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:02 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Another Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>Here's another outgoing message!</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:05 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                
-                    <!-- Another Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>Here's another incoming message!</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:07 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>This is an outgoing message.</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:00 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                    
-                    <!-- Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>This is an incoming message.</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:02 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Another Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>Here's another outgoing message!</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:05 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                
-                    <!-- Another Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>Here's another incoming message!</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:07 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>This is an outgoing message.</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:00 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                    
-                    <!-- Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>This is an incoming message.</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:02 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Another Outgoing Message -->
-                    <div class="flex justify-end mb-4">
-                        <div class="flex items-end">
-                            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                                <p>Here's another outgoing message!</p>
-                                <div class="flex justify-between items-center mt-1">
-                                    <span class="text-xs text-gray-300">10:05 AM</span>
-                                    <i class="fas fa-check-double text-white ml-2"></i> <!-- Double success icon -->
-                                </div>
-                            </div>
-                            <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2">
-                        </div>
-                    </div>
-                
-                    <!-- Another Incoming Message -->
-                    <div class="flex justify-start mb-4">
-                        <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2">
-                        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                            <p>Here's another incoming message!</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-500">10:07 AM</span>
-                                <i class="fas fa-check text-gray-800 ml-2"></i> <!-- One success icon -->
-                            </div>
+                </div>
+
+                <!-- Incoming Message -->
+                <div class="flex justify-start mb-4">
+                    <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2 dark:border-gray-600">
+                    <div class="bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 p-3 rounded-lg max-w-xs shadow-md one-success relative">
+                        <p>This is an incoming message.</p>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-xs text-gray-500">10:02 AM</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="chat-footer w-full px-5 py-2 flex w-full items-center gap-2">
-                    <i class="fa-solid fa-paperclip text-2xl cursor-pointer"></i>
-                    <i class="fa-solid fa-smile text-2xl cursor-pointer"></i>
-                    <i class="fa-solid fa-camera text-2xl cursor-pointer"></i>
-                    <input name="" class="w-full  p-2 border-1 border-gray-500" id="" placeholder="message here ..." />
-                    <i class="fa-brands fa-telegram text-2xl cursor-pointer"></i>
+
+                <!-- Outgoing Message with Image -->
+                <div class="flex justify-end mb-4">
+                    <div class="flex items-end">
+                        <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
+                            <p>This is an outgoing message with an image.</p>
+                            <img src="outgoing-contact.jpg" alt="Outgoing Image" class="mt-2 rounded-lg max-w-xs"> <!-- Image -->
+                            <div class="flex justify-between items-center mt-1">
+                                <span class="text-xs text-gray-300">10:00 AM</span>
+                                <i class="fas fa-check-double text-white ml-2"></i>
+                            </div>
+                        </div>
+                        <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2 dark:border-gray-600">
+                    </div>
+                </div>
+
+                <!-- Outgoing Message with Video -->
+                <div class="flex justify-end mb-4">
+                    <div class="flex items-end">
+                        <div class=" flex flex-col bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
+                            <video class="mt-2 rounded-lg max-w-xs" controls>
+                                <source src="incoming-video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video> <!-- Video -->
+                            <p>This is an outgoing message with a video.</p>
+
+                            <div class="flex justify-between items-center mt-1">
+                                <span class="text-xs text-gray-300">10:00 AM</span>
+                                <i class="fas fa-check-double text-white ml-2"></i>
+                            </div>
+                        </div>
+                        <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2 dark:border-gray-600">
+                    </div>
+                </div>
+
+                <!-- Incoming Message with Image -->
+                <div class="flex justify-start mb-4">
+                    <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2 dark:border-gray-600">
+                    <div class="bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 p-3 rounded-lg max-w-xs shadow-md one-success relative">
+                        <p>This is an incoming message with an image.</p>
+                        <img src="outgoing-contact.jpg" alt="Incoming Image" class="mt-2 rounded-lg max-w-xs"> <!-- Image -->
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-xs text-gray-500">10:02 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Incoming Message with Video -->
+                <div class="flex justify-start mb-4">
+                    <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2 dark:border-gray-600">
+                    <div class="bg-gray-200 text-gray-800 dark:bg-gray-700 flex-col  dark:text-gray-300 p-3 flex items-center juastify-start rounded-lg max-w-xl shadow-md one-success relative">
+                        <video class="mt-2 rounded-lg max-w-xs" controls>
+                            <source src="incoming-video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video> <!-- Video -->
+                        <div class="flex w-full justify-between items-center mt-1">
+                            <span class="text-xs text-gray-500">10:02 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Incoming Message with Image -->
+                <div class="flex justify-start mb-4">
+                    <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2 dark:border-gray-600">
+                    <div class="bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 p-3 rounded-lg max-w-xs shadow-md one-success relative">
+                        <p>This is an incoming message with an image.</p>
+                        <img src="incoming-contact.jpg" alt="Incoming Image" class="mt-2 rounded-lg max-w-xs"> <!-- Image -->
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-xs text-gray-500">10:02 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Incoming Message with Video -->
+                <div class="flex justify-start mb-4">
+                    <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2 dark:border-gray-600">
+                    <div class="flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 p-3 rounded-lg max-w-xs shadow-md one-success relative">
+                        <video class="mt-2 rounded-lg max-w-xs" controls>
+                            <source src="incoming-video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video> <!-- Video -->
+                        <p>This is an incoming message with a video.</p>
+
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-xs text-gray-500">10:02 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+            <!-- Conversation zone ends -->
+
+            <!-- Chat Footer Starts -->
+            <div class="chat-footer p-2 border-1 border-gray-500 dark:border-gray-600 w-full  flex w-full items-center gap-2">
+                <div class="flex w-full items-center gap-2">
+                    <i class="fa-solid fa-paperclip text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
+                    <i class="fa-solid fa-smile text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
+                    <i class="fa-solid fa-camera text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
+                    <input name="" class="w-full p-2  bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200" id="" placeholder="message here ..." />
+                    <i class="fa-brands fa-telegram text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
+                </div>
+            </div>
+            <!-- Chat Footer Ends -->
+
+            <!-- User incoming profile zone starts -->
+            <div class="incoming-profile absolute flex  top-0 w-full h-full items-center justify-end" >
+                <div class="incoming-info flex w-2/5 h-full relative overflow-y-auto flex-col gap-2 bg-white dark:bg-gray-800 shadow-md">
+                        <div class="flex relative gap-2 bg-white dark:bg-gray-700  shadow-sm">
+                            <div class="absolute w-full z-10 flex justify-between top-0 left-0 p-4">
+                                <div class="flex gap-2 items-center">
+                                    <i class="fa-solid fa-arrow-left text-gray-600 text-2xl text-white cursor-pointer" id="remove-incoming-profile"></i>
+                                    <span class="text-gray-600 dark:text-gray-300">Incoming Contact</span>
+                                </div>
+                                <div class="flex gap-8 p-2">
+                                    <i class="text-xl dark:text-white  fa-solid fa-video text-gray-500"></i>
+                                    <i class="text-xl dark:text-white  fa-solid fa-phone text-gray-500"></i>
+                                    <i class="text-xl dark:text-white  fa-solid fa-ellipsis-vertical text-gray-500"></i>
+                                </div>
+                            </div>
+                            <div class="user-info  w-full flex flex-col ">
+                                <img src="myImage.jpg" class="w-full h-full border dark:border-gray-600" alt="">
+                                <div class="absolute bottom-0 p-3 flex w-full justify-between">
+                                    <div class="basic-info flex flex-col">
+                                        <span class="font-bold text-3xl text-black dark:text-white">maximus dev code</span>
+                                        <span class="text-gray-500 dark:text-gray-400 font-medium lowercase">last seen <span class="capitelize">apr</span> 21 at 14:26 </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <i class="absolute text-white text-2xl fa fa-comment-dots -bottom-5 right-5 w-14 h-14 flex items-center justify-center dark:bg-blue-300 rounded-full"></i>
+                        </div>
+                        <div class="info flex flex-col gap-3 p-5">
+                            <span class="title dark:text-blue-300 font-bold">info</span>
+                            <div class="flex items-start flex-col gap-2">
+                                <span class="text-gray-500 dark:text-white text-xl font-medium">+1 (450) 421-2163</span>
+                                <span class="text-gray-500 dark:text-gray-400 text-xl">Mobile</span>
+                            </div>
+                            <div class="flex items-start flex-col gap-2">
+                                 <div class="flex w-full justify-between">   
+                                    <span class="text-gray-500 dark:text-white text-xl font-medium">Notification</span>
+                                    <i class="fa-solid fa-toggle-off dark:text-white text-xl"></i>
+                                </div>
+                                <span class="text-gray-500 dark:text-gray-400 text-xl">Off</span>
+                            </div>
+                        </div>
+
+                        <div class="media flex flex-col mt-5 dark:bg-gray-700 w-full h-full" >
+                            <div class="bg-white dark:bg-gray-800 h-full">
+                                <div class="border-b">
+                                    <nav class="flex space-x-4">
+                                        <button class="tab-button block py-2 px-4 text-xl font-medium text-blue-600 border-b-2 border-blue-600 focus:outline-none" data-tab="media">
+                                            Media
+                                        </button>
+                                        <button class="tab-button block py-2 px-4 text-xl font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 focus:outline-none" data-tab="voice">
+                                            Voice
+                                        </button>
+                                        <button class="tab-button block py-2 px-4 text-xl font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 focus:outline-none" data-tab="gifs">
+                                            Gifs
+                                        </button>
+                                        <button class="tab-button block py-2 px-4 text-xl font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 focus:outline-none" data-tab="sticker">
+                                            Sticker
+                                        </button>
+                                    </nav>
+                                </div>
+                        
+                                <div class="tab-content h-full p-4 text-gray-800 dark:text-gray-200">
+                                    <div class="flex items-center justify-center w-full h-full">
+                                        <h1 class="text-lg font-semibold">Select tab</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <!-- Usr incoming profile zone ends -->
+
+        </div>
+        <!-- Chat zone Ends -->
+
+        <!-- voice call zone starts -->
+        <div  class="video-call-interface absolute  inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden z-50">
+            <!-- <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md w-full max-w-md p-10">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="bg-gray-200 rounded-full w-32 h-32 flex items-center justify-center overflow-hidden">
+                        <img src="incoming-contact.jpg" alt="Contact" class="rounded-full">
+                    </div>
+                </div>
+                <h1 class="text-lg text-white font-semibold text-center">John Doe</h1>
+                <p class="text-gray-500 text-center">Calling...</p>
+                <div class="text-center mt-2">
+                    <span class="text-gray-800 text-lg text-gray-500">00:01:30</span>
+                </div>
+                <div class="flex justify-around mt-4">
+                    <button  class="end-call bg-red-500 text-white rounded-full p-3 hover:bg-red-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-1.414 1.414 2.121 2.121a1.5 1.5 0 001.414.293A1.5 1.5 0 0019 13.5V6a1.5 1.5 0 00-2.328-1.309l-2.121 2.121-1.414-1.414A1.5 1.5 0 0011 6.502V13.5a1.5 1.5 0 001.672 1.493 1.5 1.5 0 00.08-.007z" />
+                        </svg>
+                    </button>
+                    <button class="bg-gray-300 text-gray-700 rounded-full p-3 hover:bg-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m-7-8h14" />
+                        </svg>
+                    </button>
+                </div>
+            </div> -->
+            
+            <div class="video-resize flex  justify-center  md:h-3/4  md:w-3/5 items-center  space-x-4">
+                <!-- Emitter Video Card -->
+                <div class="bg-white overflow-hidden relative flex flex-col justify-center w-full h-full shadow-lg rounded-lg ">
+                    <h2 class="absolute top-2 left-2 text-lg font-semibold mb-2 text-center dark:text-white z-50">Emitter</h2>
+                    <video id="videoEmitter" class="w-full h-full rounded-md"  autoplay playsinline></video>
+                    <div class="absolute top-0 left-0 w-full h-full bg-opacity-25 bg-black flex flex-col justify-center items-center ">
+                        <h1 class="text-lg text-white font-semibold text-center">John Doe</h1>
+                        <p class="font-medium dark:text-gray-100 text-center">Calling...</p>
+                        <div class="text-center mt-2">
+                            <span class="text-gray-800 text-lg dark:text-gray-100 font-semibold">00:01:30</span>
+                        </div>
+                        <div class="flex justify-around gap-5 mt-4">
+                            <button  class="end-call bg-red-500 text-white rounded-full w-12 h-12 hover:bg-red-600">
+                                <i class="fas fa-phone-alt"></i>
+                            </button>
+
+                            <button class="bg-gray-300 text-gray-700 rounded-full  w-12 h-12 hover:bg-gray-400">
+                                <i class="fa fa-plus"></i>
+                            </button>
+
+                            
+                            <button class="bg-gray-300 text-gray-700 rounded-full w-12 h-12 hover:bg-gray-400" id="mute-camera">
+                                <i class="fas fa-video-slash"></i>
+                            </button>
+                            <button class="bg-gray-300 text-gray-700 rounded-full w-12 h-12 hover:bg-gray-400 mute-call">
+                                <i class="fas fa-microphone-slash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Receptor Video Card -->
+                <div class="video-resize shadow-lg flex  absolute bottom-2 right-2 w-60 h-96  rounded-lg ui-widget-content shadow-md draggable">
+                    <!-- <h2 class="text-lg font-semibold mb-2 text-center absolute left-2">Receptor</h2> -->
+                    <video id="videoReceptor" class=" w-60 h-96 rounded-lg" autoplay playsinline></video>
+                </div>
                 </div>
             
+                
+            </div>
         </div>
-        <!-- Chat zone ends -->
+         <!-- voice call zone ends -->
+
+         <!-- video call zone starts -->
+         <div  class="voice-call-interface absolute  inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden z-50">
+            <div class="voice-resize draggable bg-white dark:bg-gray-800 rounded-lg shadow-md md:h-3/5  md:w-3/6 flex flex-col justify-center items-center">
+                <img src="myImage.jpg" alt=""  class="w-32 h-32 rounded-full mb-4 receptor">
+                <h1 class="text-lg font-semibold text-center mt-4 text-white">John Doe & Jane Smith</h1>
+                <p class="text-gray-500 text-center">In Call...</p>
+                <div class="text-center mt-2">
+                    <span class="text-gray-800 text-lg text-white">00:01:30</span>
+                </div>
+                <div class="flex gap-20 justify-around mt-4 mb-4">
+                    <button  class="end-call bg-red-500 text-white rounded-full w-12 h-12 hover:bg-red-600">
+                        <i class="fas fa-phone-alt"></i>
+                    </button>
+                    <button class="bg-gray-300 text-gray-700 rounded-full w-12 h-12 hover:bg-gray-400 mute-call" >
+                        <i class="fas fa-microphone-slash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+         <!-- video call zone ends -->
+
+        <!-- Loader starts -->
+        <div class="absolute top-0 left-0 flex flex-col justify-center items-center w-full h-full  bg-opacity-80" id="loading">
+            <i class="fa-solid fa-spinner animate-spin text-4xl text-gray-500"></i>
+            <p class="text-gray-500">Loading...</p>
+        </div>
+        <!-- Loader ends -->  
+         
+        <div class="user-status  absolute flex top-0 left-0 h-full w-full bg-black py-2">
+            <div class="container mx-auto w-full gap-2 bg-white dark:bg-gray-800    flex flex-col ">
+                 <!-- Main slider -->
+                    <div id="main-slider" class="relative flex w-screen h-full overflow-auto snap-x snap-mandatory scrollbar-hide">
+                        <div class="slide w-full h-full flex transition-transform duration-300">
+                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
+                                <h3 class="text-lg font-semibold">Card 1</h3>
+                                <p>This is the first card.</p>
+                            </div>
+                            
+                        </div>
+                        <div class="slide w-full h-full flex transition-transform duration-300">
+                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
+                                <h3 class="text-lg font-semibold">Card 1</h3>
+                                <p>This is the first card.</p>
+                            </div>
+                          
+                        </div>
+                        <div class="slide w-full h-full flex transition-transform duration-300">
+                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
+                                <h3 class="text-lg font-semibold">Card 1</h3>
+                                <p>This is the first card.</p>
+                            </div>
+                           
+                        </div>
+                        <div class="slide w-full h-full flex transition-transform duration-300">
+                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
+                                <h3 class="text-lg font-semibold">Card 1</h3>
+                                <p>This is the first card.</p>
+                            </div>
+                           
+                        </div>
+                        <div class="slide w-full h-full flex transition-transform duration-300">
+                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
+                                <h3 class="text-lg font-semibold">Card 1</h3>
+                                <p>This is the first card.</p>
+                            </div>
+                            
+                        </div>
+                        <div class="slide w-full h-full flex transition-transform duration-300">
+                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
+                                <h3 class="text-lg font-semibold">Card 1</h3>
+                                <p>This is the first card.</p>
+                            </div>
+                            
+                        </div>
+                        <div class="slide w-full h-full flex transition-transform duration-300">
+                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
+                                <h3 class="text-lg font-semibold">Card 1</h3>
+                                <p>This is the first card.</p>
+                            </div>
+                          
+                        </div>
+                        <div class="slide w-full h-full flex transition-transform duration-300">
+                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
+                                <h3 class="text-lg font-semibold">Card 1</h3>
+                                <p>This is the first card.</p>
+                            </div>
+                           
+                        </div>
+                        <div class="slide w-full h-full flex transition-transform duration-300">
+                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
+                                <h3 class="text-lg font-semibold">Card 1</h3>
+                                <p>This is the first card.</p>
+                            </div>
+                           
+                        </div>
+                        <div class="slide w-full h-full flex transition-transform duration-300">
+                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
+                                <h3 class="text-lg font-semibold">Card 1</h3>
+                                <p>This is the first card.</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+            
+                
+                <!-- Next/Previous buttons -->
+                <button id="prev" class="absolute left-5 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white p-2 rounded">Prev</button>
+                <button id="next" class="absolute right-5 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white p-2 rounded">Next</button>
+        
+                <!-- Thumbnail slider -->
+                <div class="flex justify-center mt-4" id="thumbs">
+                    <div class="thumb cursor-pointer w-10 h-2 dark:bg-gray-200 rounded mx-1">
+                        <h4 class="text-center dark:text-white"></h4>
+                    </div>
+                    <div class="thumb cursor-pointer w-10 h-2 dark:bg-gray-200 rounded mx-1">
+                        <h4 class="text-center"></h4>
+                    </div>
+                    <div class="thumb cursor-pointer w-10 h-2 dark:bg-gray-200 rounded mx-1">
+                        <h4 class="text-center dark:text-white"></h4>
+                    </div>
+                    <div class="thumb cursor-pointer w-10 h-2 dark:bg-gray-200 rounded mx-1">
+                        <h4 class="text-center dark:text-white"></h4>
+                    </div>
+                </div>
+                <div class="chat-footer  border-1 border-gray-500 dark:bg-gray-800 w-full  flex items-center gap-2">
+                    <div class="flex w-full items-center gap-2">
+                        <i class="fa-solid fa-paperclip text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
+                        <i class="fa-solid fa-smile text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
+                        <i class="fa-solid fa-camera text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
+                        <input name="" class="w-full p-2  bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200" id="" placeholder="message here ..." />
+                        <i class="fa-brands fa-telegram text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script src="jquery-3.7.1.js"></script>
     <script src="jquery-ui.js"></script>
+    <!-- <script src="swiper-bundle.min.js"></script> -->
     <script src="chatRoom.js"></script>
      
 </body>
