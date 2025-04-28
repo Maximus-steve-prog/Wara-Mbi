@@ -25,7 +25,7 @@ body{
 
 
 html{
-    font-size: .85rem;
+    font-size: .89rem;
     scroll-padding-top: 5.5rem;
     scroll-behavior: smooth;
 }
@@ -39,6 +39,10 @@ html{
     padding: .3rem;
 }
 
+.min-w-contact{
+    min-width: 310px;
+}
+
 .chat-footer input {
 
     border:0;
@@ -46,14 +50,13 @@ html{
     resize: vertical; /* allow textarea to grow vertically */
 }
 
-.title-app{
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--black);
-    padding: 1rem 5px;
+.show-search{
+    display: none;
 }
 
 
+
+.contactsList::-webkit-scrollbar,
 .conversation::-webkit-scrollbar,
 .incoming-info::-webkit-scrollbar,
 .contact-list::-webkit-scrollbar {
@@ -61,7 +64,6 @@ html{
 }
 
 .search input{
-    border: 1px solid var(--light-color);
     border-radius: 5px;
     min-height: 30px !important; 
     padding: 0 1rem;
@@ -117,10 +119,35 @@ html{
     font-size: 24px;
 }
 
+.action-icons {
+    display: none; /* Hidden by default */
+}
+.message-wrapper:hover .action-icons {
+    display: flex; /* Show icons on hover */
+}
+.emoji-picker {
+    display: none; /* Hidden by default */
+    
+}
+
+
+.emoji-picker::-webkit-scrollbar {
+    display: none;
+}
+
 
 @media (max-width:768px) {
     #back{
         display: block;
+    }
+
+    #slider-container{
+        width: 100%;
+    }
+
+    #slider-container img{
+        width: 100%;
+        height: 100%;
     }
 
     .voice-resize,
@@ -135,7 +162,7 @@ html{
         margin: 0;
         align-items: flex-start;
         --tw-bg-opacity: 1;
-        background-image: linear-gradient(180deg, rgba(31, 41, 55, var(--tw-bg-opacity)) 0%, rgba(31, 41, 55, var(--tw-bg-opacity)) 100%) !important;
+        /* background-image: linear-gradient(180deg, rgba(31, 41, 55, var(--tw-bg-opacity)) 0%, rgba(31, 41, 55, var(--tw-bg-opacity)) 100%) !important; */
         overflow: hidden !important;
     }
 
@@ -151,7 +178,7 @@ html{
         height: 100% !important;
     }
     .search{
-        position: fixed;
+        position: absolute;
         top: -50%;
         left: 0;
         width: 100%;
@@ -160,8 +187,8 @@ html{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        box-shadow: var(--box-shadow);
-        background: var(--white-color);
+        /* box-shadow: var(--box-shadow); */
+        /* background: var(--white-color); */
         z-index: 1000;
     }
     .search i{
@@ -169,7 +196,7 @@ html{
     }
 
     html{
-        font-size:75%;
+        font-size:70;
     }
 
     
@@ -257,3 +284,22 @@ html{
     stroke-dasharray: 125.6;
     transform: rotate(-90deg);
   }
+
+
+
+  #main-slider {
+    position: relative;
+    overflow: hidden;
+}
+.slide {
+    position: absolute; /* Position each slide absolutely */
+    top: 0; /* Align top */
+    left: 0; /* Align left */
+    height: 100%; /* Full height */
+    width: 100%; /* Full width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease; /* Smooth transition for the transform */
+}
+

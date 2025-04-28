@@ -6,26 +6,27 @@
    
     <!-- <link rel="stylesheet" href="tailwind.min.css"> -->
     <script src="3.4.js"></script>  
+    <script src="browser@4.js"></script>  
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Wara Mbi</title>
 </head>
-<body id="body"  class="bg-gray-100 h-screen flex text-gray-800  transition-colors duration-200  overflow-hidden">
+<body  class="bg-white dark:bg-black bg-gray-100 h-screen flex text-gray-800  transition-colors duration-200  overflow-hidden">
     <div class="container relative h-full p-1 dark:bg-gray-800 rounded-lg flex w-full max-w-10xl ">  
 
         <!-- Contact List Starts-->
-        <div id="contact" class="contact relative max-w-xl min-w-min shadow-sm  overflow-hidden w-full h-full list-container bg-white dark:bg-gray-800 flex flex-col gap-2 px-5 py-2">
+        <div id="contact" class="contact relative max-w-xl min-w-contact transition-all duration-200 shadow-sm  overflow-hidden w-full h-full list-container bg-white dark:bg-gray-800 flex flex-col gap-2 px-5 py-2">
             <div class="title-app flex px-4 py-3 items-center justify-between">
-                <h1 class="text-3xl font-bold text-blue-500 dark:text-blue-300">Wara Mbi</h1>
+                <h1 class="text-2xl font-bold text-blue-500 dark:text-blue-400">Wara Mbi</h1>
                 <div class="flex items-center gap-5">
-                    <i class="text-xl w-12 h-12 flex items-center justify-center bg-gray-200 rounded-lg hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 show-search fa-solid fa-magnifying-glass text-gray-500 dark:text-gray-400"></i>
-                    <i class="text-xl w-12 h-12 flex items-center justify-center bg-gray-200 rounded-lg hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 fa-solid fa-user-plus text-gray-500 dark:text-gray-400"></i>
-                    <i class="text-xl toggle-user-profile w-12 h-12 flex items-center justify-center bg-gray-200 rounded-lg hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 fa-solid fa-ellipsis-vertical text-gray-500 dark:text-gray-400"></i>
+                    <i class="cursor-pointer  w-10 h-10 flex items-center justify-center bg-gray-200 rounded-lg hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 show-search md:hidden fa-solid fa-magnifying-glass text-gray-500 dark:text-gray-400"></i>
+                    <i class="cursor-pointer w-10 h-10 flex items-center justify-center bg-gray-200 rounded-lg hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 fa-solid fa-user-plus text-gray-500 dark:text-gray-400"></i>
+                    <i class="cursor-pointer toggle-user-profile w-10 h-10 flex items-center justify-center bg-gray-200 rounded-lg hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 fa-solid fa-ellipsis-vertical text-gray-500 dark:text-gray-400"></i>
                 </div>
             </div>
-            <div class="search flex items-center dark:bg-gray-800 bg-white shadow-sm px-4 py-29
+            <div class="search flex items-center dark:bg-gray-800 bg-white  px-4 py-29
              mb-2">
                 <input type="text" id="search" placeholder="Search" class="flex-1 border-2 border-gray-500 rounded-lg p-3 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-gray-300" />
                 <i class="fa-solid fa-magnifying-glass text-gray-500 ml-2 dark:text-gray-400"></i>
@@ -35,15 +36,15 @@
                 <!-- Contacts will be dynamically inserted here -->
             </div>
             <div class="filter-list flex items-center justify-between ">
-                <div class="filter-item rounded-xl hover:bg-blue-200 dark:hover:bg-blue-600 px-4 py-2 flex items-center gap-2 cursor-pointer">
+                <div class="filter-item rounded-xl hover:bg-blue-200 dark:hover:bg-blue-600 px-4 py-2 flex flex-col items-center gap-0 cursor-pointer">
                     <i class="fa-solid fa-user text-gray-500 dark:text-gray-400"></i>
                     <span class="text-gray-500 dark:text-gray-300">All Contacts</span>
                 </div>
-                <div class="filter-item rounded-xl hover:bg-blue-200 dark:hover:bg-blue-600 px-4 py-2 flex items-center gap-2 cursor-pointer">
+                <div class="filter-item rounded-xl hover:bg-blue-200 dark:hover:bg-blue-600 px-4 py-2 flex flex-col items-center gap-0 cursor-pointer">
                     <i class="fa-solid fa-user-friends text-gray-500 dark:text-gray-400"></i>
                     <span class="text-gray-500 dark:text-gray-300">Groups</span>
                 </div>
-                <div class="filter-item rounded-xl hover:bg-blue-200 dark:hover:bg-blue-600 px-4 py-2 flex items-center gap-2 cursor-pointer">
+                <div class="filter-item rounded-xl hover:bg-blue-200 dark:hover:bg-blue-600 px-4 py-2 flex flex-col items-center gap-0 cursor-pointer">
                     <i class="fa-solid fa-star text-gray-500 dark:text-gray-400"></i>
                     <span class="text-gray-500 dark:text-gray-300">Favorites</span>
                 </div>
@@ -51,8 +52,8 @@
 
             <!-- User Personal info Starts -->
             <div class="user-profile absolute top-0 left-0 w-full h-full">
-                <div class="profile-outgoing w-5/6  gap-2 h-full bg-white dark:bg-gray-800 shadow-md flex flex-col p-3">
-                    <div class="flex gap-2 bg-white dark:bg-gray-700 p-3 rounded-lg shadow-sm">
+                <div class="profile-outgoing w-5/6 relative h-full  gap-2 overflow-y-auto bg-white dark:bg-gray-800 shadow-md flex flex-col p-3">
+                    <div class="flex gap-2 bg-white dark:bg-gray-700 p-3 rounded-lg shadow-xl">
                         <div class="user-info w-full flex flex-col gap-2 ">
                             <img src="outgoing-contact.jpg" class="w-20 h-20 rounded-full border dark:border-gray-600" alt="">
                             <div class="flex w-full justify-between">
@@ -62,30 +63,84 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-col py-2 justify-between">
-                            <!-- <i class="dark-mode fa fa-moon text-2xl cursor-pointer p-3 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg"></i> -->
-                             
-                            <i class="fa fa-edit text-2xl cursor-pointer p-3 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg"></i>
+                        <div class="flex pointer-events-auto relative flex-col py-2 justify-between">
+                            <!-- <button type="button" class="dropdownButton pointer-events-auto flex justify-center items-center"  id="dropdownButton"  aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" aria-labelledby="headlessui-label-:rj: headlessui-listbox-button-:rk:">
+                                <span class="dark:hidden">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                                        <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" class="fill-sky-400/20 stroke-sky-500"></path>
+                                        <path d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836" class="stroke-sky-500"></path>
+                                    </svg>
+                                </span>
+                                <span class="hidden dark:inline">
+                                    <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z" class="fill-sky-400/20"></path>
+                                        <path d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z" class="fill-sky-500"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z" class="fill-sky-500"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div  class="dropdownoptions absolute dark:bg-slate-800 dark:highlight-white/5 hidden z-50 top-2 right-0 bg-white rounded-lg ring-1 ring-slate-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-slate-700 font-semibold dark:bg-slate-800 dark:ring-0 dark:highlight-white/5 dark:text-slate-300 mt-8"  aria-labelledby="headlessui-listbox-button-:rk:" aria-orientation="vertical" role="listbox" tabindex="0" data-headlessui-state="open" data-open="" style="--button-width: 24px;">
+                                <div class="hover:bg-sky-50 dark:hover:bg-slate-600 py-1 px-2 flex items-center cursor-pointer text-sky-500" id="headlessui-listbox-option-:r17:" role="option" tabindex="-1" aria-selected="true" data-headlessui-state="selected" data-selected="">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-2">
+                                        <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" class="fill-sky-400/20 stroke-sky-500"></path>
+                                        <path d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836" class="stroke-sky-500"></path>
+                                    </svg>Light
+                                </div>
+                                <div class="hover:bg-sky-50 dark:hover:bg-slate-600 py-1 px-2 flex items-center cursor-pointer" id="headlessui-listbox-option-:r18:" role="option" tabindex="-1" aria-selected="false" data-headlessui-state="">
+                                    <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 mr-2">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z" class="fill-transparent"></path>
+                                        <path d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z" class="fill-slate-400 dark:fill-slate-500"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z" class="fill-slate-400 dark:fill-slate-500"></path>
+                                    </svg>Dark
+                                </div>
+                                <div class="hover:bg-sky-50 dark:hover:bg-slate-600 py-1 px-2 flex items-center cursor-pointer" id="headlessui-listbox-option-:r19:" role="option" tabindex="-1" aria-selected="false" data-headlessui-state="">
+                                    <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 mr-2">
+                                        <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z" stroke-width="2" stroke-linejoin="round" class="stroke-slate-400 dark:stroke-slate-500"></path><path d="M14 15c0 3 2 5 2 5H8s2-2 2-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-slate-400 dark:stroke-slate-500"></path>
+                                    </svg>System
+                                </div>
+                            </div> -->
+                            <button type="button" class="btn-dark   hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" data-hs-theme-click-value="dark">
+                                <span class="group inline-flex shrink-0 justify-center items-center size-9">
+                                  <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                                  </svg>
+                                </span>
+                              </button>
+                              <button type="button" class="btn-light  hidden hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" data-hs-theme-click-value="light">
+                                <span class="group inline-flex shrink-0 justify-center items-center size-9">
+                                  <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="4"></circle>
+                                    <path d="M12 2v2"></path>
+                                    <path d="M12 20v2"></path>
+                                    <path d="m4.93 4.93 1.41 1.41"></path>
+                                    <path d="m17.66 17.66 1.41 1.41"></path>
+                                    <path d="M2 12h2"></path>
+                                    <path d="M20 12h2"></path>
+                                    <path d="m6.34 17.66-1.41 1.41"></path>
+                                    <path d="m19.07 4.93-1.41 1.41"></path>
+                                  </svg>
+                                </span>
+                              </button>
+                            <i class="fa fa-edit text-xl cursor-pointer w-10 h-10 flex items-center justify-center text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg"></i>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-5 h-full">
-                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-2 p-5">
+                    <div class="flex flex-col gap-2 h-full overflow-y-auto">
+                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-3 p-4">
                             <i class="fa-solid fa-user text-gray-500 dark:text-gray-400"></i>
                             <span class="text-gray-500 dark:text-gray-300">My Profile</span>
                         </div>
-                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-2 p-5">
+                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-3 p-4">
                             <i class="fa-solid fa-cog text-gray-500 dark:text-gray-400"></i>
                             <span class="text-gray-500 dark:text-gray-300">Settings</span>
                         </div>
-                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-2 p-5">
+                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-3 p-4">
                             <i class="fa-solid fa-bell text-gray-500 dark:text-gray-400"></i>
                             <span class="text-gray-500 dark:text-gray-300">Notifications</span>
                         </div>
-                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-2 p-5">
+                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-3 p-4">
                             <i class="fa-solid fa-user-plus text-gray-500 dark:text-gray-400"></i>
                             <span class="text-gray-500 dark:text-gray-300">Add a contact</span>
                         </div>
-                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-2 p-5">
+                        <div class="flex items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg gap-3 p-4">
                             <i class="fa-solid fa-shield-alt text-gray-500 dark:text-gray-400"></i>
                             <span class="text-gray-500 dark:text-gray-300">Security</span>
                         </div>
@@ -133,15 +188,15 @@
             <div class="header-chat p-2 flex justify-between items-center">
                 <div class="header flex items-center gap-2">
                     <i class="cursor-pointer fa-solid fa-arrow-left text-gray-600 dark:text-gray-300" id="back"></i>
-                    <img src="outgoing-contact.jpg" class="w-14 rounded-full border dark:border-gray-600 show-incoming-info"  alt="">
+                    <img src="outgoing-contact.jpg" class="w-10 h-10 object-cover rounded-full border-0 dark:border-gray-600 show-incoming-info"  alt="">
                     <div class="flex flex-col">
                         <span class="text-gray-600 dark:text-gray-300">John Doe</span>
                         <span class="text-gray-600 dark:text-gray-300">Online</span>
                     </div>
                 </div>
                 <div class="header-icons flex items-center gap-4">
-                    <i class="start-voice-call-btn bg-gray-200 rounded-lg  w-12 h-12 flex items-center justify-center hover:bg-blue-200 cursor-pointer text-xl dark:bg-gray-700 hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 dark:text-gray-200 fa-solid fa-phone"></i>
-                    <i class="text-xl toggle-user-profile w-12 h-12 flex items-center justify-center bg-gray-200 rounded-lg hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 fa-solid fa-ellipsis-vertical text-gray-500 dark:text-gray-400"></i>
+                    <i class="start-voice-call-btn bg-gray-200 rounded-lg  w-10 h-10 flex items-center justify-center hover:bg-blue-200 cursor-pointer  dark:bg-gray-700 hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 dark:text-gray-200 fa-solid fa-phone"></i>
+                    <i class="cursor-pointer toggle-user-profile w-10 h-10 flex items-center justify-center bg-gray-200 rounded-lg hover:bg-blue-200 dark:bg-gray-700 dark:hover:bg-blue-600 fa-solid fa-ellipsis-vertical text-gray-500 dark:text-gray-400"></i>
                 </div>
             </div>
             <!-- Chat Room header Ends -->
@@ -150,117 +205,84 @@
             <!-- Conversation zone starts -->
             <div class="conversation bg-gray-100 dark:bg-gray-900 w-full h-full  overflow-y-auto p-4 space-y-4">
                 <!-- Outgoing Message -->
-                <div class="flex justify-end mb-4">
+                <div class="flex justify-end mb-4 message-wrapper">
                     <div class="flex items-end">
-                        <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
+                        <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md relative">
                             <p>This is an outgoing message.</p>
                             <div class="flex justify-between items-center mt-1">
                                 <span class="text-xs text-gray-300">10:00 AM</span>
                                 <i class="fas fa-check-double text-white ml-2"></i>
                             </div>
+                            <div class="selected-emoji absolute  top-14 w-6 h-6 flex  overflow-y-hidden right-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-full"></div>
+                            
+                            <div class=" flex items-center justify-center w-full h-full rounded-lg bg-black left-0 top-0 absolute opacity-90">
+                                <div class="action-icons  top-2  dark:bg-black border p-2 rounded-lg  mt-2 mr-2">
+                                    <i class="fas fa-edit text-white cursor-pointer" title="Edit"></i>
+                                    <i class="fas fa-trash-alt text-white cursor-pointer mx-2" title="Delete"></i>
+                                    <i class="fas fa-share text-white cursor-pointer openForwardModal" title="Forward"></i>
+                                    <i class="fas fa-thumbtack text-white cursor-pointer ml-2" title="Pin"></i>
+                                    <i class="fas fa-smile emoji-button text-white cursor-pointer ml-2" title="Emoji"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="emoji-picker absolute  top-18 w-3/5 
+                        flex  overflow-y-hidden right-0 
+                        bg-white dark:bg-gray-800 border border-gray-300 
+                        dark:border-gray-600 rounded-lg invisible" >
+                                <span class="cursor-pointer">😀</span>
+                                <span class="cursor-pointer">😂</span>
+                                <span class="cursor-pointer">😍</span>
+                                <span class="cursor-pointer">😢</span>
+                                <span class="cursor-pointer">😡</span>
+                                <span class="cursor-pointer">👍</span>
+                                <span class="cursor-pointer">👎</span>
+                                <span class="cursor-pointer">✨</span>
+                                <span class="cursor-pointer">🎉</span>
+                                <span class="cursor-pointer">😎</span>
+                            </div>
                         </div>
                         <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2 dark:border-gray-600">
                     </div>
                 </div>
-
+            
                 <!-- Incoming Message -->
-                <div class="flex justify-start mb-4">
+                <div class="flex relative justify-start mb-4 message-wrapper">
                     <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2 dark:border-gray-600">
-                    <div class="bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 p-3 rounded-lg max-w-xs shadow-md one-success relative">
+                    <div class="bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 p-3 rounded-lg max-w-xs shadow-md relative">
                         <p>This is an incoming message.</p>
                         <div class="flex justify-between items-center mt-1">
                             <span class="text-xs text-gray-500">10:02 AM</span>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Outgoing Message with Image -->
-                <div class="flex justify-end mb-4">
-                    <div class="flex items-end">
-                        <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                            <p>This is an outgoing message with an image.</p>
-                            <img src="outgoing-contact.jpg" alt="Outgoing Image" class="mt-2 rounded-lg max-w-xs"> <!-- Image -->
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-300">10:00 AM</span>
-                                <i class="fas fa-check-double text-white ml-2"></i>
-                            </div>
+                        <div class="action-icons absolute top-2 -right-0 bg-gray-800 border p-2 rounded-lg right-0 mt-2 mr-2">
+                            <i class="fas fa-edit dark:text-gray-100 cursor-pointer" title="Edit"></i>
+                            <i class="fas fa-trash-alt dark:text-gray-100 cursor-pointer mx-2" title="Delete"></i>
+                            <i class="fas fa-share dark:text-gray-100 cursor-pointer openForwardModal" title="Forward"></i>
+                            <i class="fas fa-thumbtack dark:text-gray-100 cursor-pointer ml-2" title="Pin"></i>
+                            <i class="fas fa-smile emoji-button dark:text-gray-100 cursor-pointer ml-2" title="Emoji"></i>
                         </div>
-                        <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2 dark:border-gray-600">
-                    </div>
-                </div>
-
-                <!-- Outgoing Message with Video -->
-                <div class="flex justify-end mb-4">
-                    <div class="flex items-end">
-                        <div class=" flex flex-col bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-md double-success relative">
-                            <video class="mt-2 rounded-lg max-w-xs" controls>
-                                <source src="incoming-video.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video> <!-- Video -->
-                            <p>This is an outgoing message with a video.</p>
-
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-gray-300">10:00 AM</span>
-                                <i class="fas fa-check-double text-white ml-2"></i>
-                            </div>
+                        <!-- Emoji Picker -->
+                        <div class="emoji-picker absolute  top-18 w-3/5 
+                        flex  overflow-y-hidden right-0 
+                        bg-white dark:bg-gray-800 border border-gray-300 
+                        dark:border-gray-600 rounded-lg invisible">
+                            <span class="cursor-pointer">😀</span>
+                            <span class="cursor-pointer">😂</span>
+                            <span class="cursor-pointer">😍</span>
+                            <span class="cursor-pointer">😢</span>
+                            <span class="cursor-pointer">😡</span>
+                            <span class="cursor-pointer">👍</span>
+                            <span class="cursor-pointer">👎</span>
+                            <span class="cursor-pointer">✨</span>
+                            <span class="cursor-pointer">🎉</span>
+                            <span class="cursor-pointer">😎</span>
                         </div>
-                        <img src="outgoing-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full ml-2 dark:border-gray-600">
+                        <div class="selected-emoji absolute  top-14 w-6 h-6 flex  overflow-y-hidden left-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-full"></div>
+
                     </div>
                 </div>
-
-                <!-- Incoming Message with Image -->
-                <div class="flex justify-start mb-4">
-                    <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2 dark:border-gray-600">
-                    <div class="bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                        <p>This is an incoming message with an image.</p>
-                        <img src="outgoing-contact.jpg" alt="Incoming Image" class="mt-2 rounded-lg max-w-xs"> <!-- Image -->
-                        <div class="flex justify-between items-center mt-1">
-                            <span class="text-xs text-gray-500">10:02 AM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Incoming Message with Video -->
-                <div class="flex justify-start mb-4">
-                    <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2 dark:border-gray-600">
-                    <div class="bg-gray-200 text-gray-800 dark:bg-gray-700 flex-col  dark:text-gray-300 p-3 flex items-center juastify-start rounded-lg max-w-xl shadow-md one-success relative">
-                        <video class="mt-2 rounded-lg max-w-xs" controls>
-                            <source src="incoming-video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video> <!-- Video -->
-                        <div class="flex w-full justify-between items-center mt-1">
-                            <span class="text-xs text-gray-500">10:02 AM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Incoming Message with Image -->
-                <div class="flex justify-start mb-4">
-                    <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2 dark:border-gray-600">
-                    <div class="bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                        <p>This is an incoming message with an image.</p>
-                        <img src="incoming-contact.jpg" alt="Incoming Image" class="mt-2 rounded-lg max-w-xs"> <!-- Image -->
-                        <div class="flex justify-between items-center mt-1">
-                            <span class="text-xs text-gray-500">10:02 AM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Incoming Message with Video -->
-                <div class="flex justify-start mb-4">
-                    <img src="incoming-contact.jpg" alt="Contact" class="border w-10 h-10 rounded-full mr-2 dark:border-gray-600">
-                    <div class="flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 p-3 rounded-lg max-w-xs shadow-md one-success relative">
-                        <video class="mt-2 rounded-lg max-w-xs" controls>
-                            <source src="incoming-video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video> <!-- Video -->
-                        <p>This is an incoming message with a video.</p>
-
-                        <div class="flex justify-between items-center mt-1">
-                            <span class="text-xs text-gray-500">10:02 AM</span>
-                        </div>
-                    </div>
-                </div>
+            
+                
 
                
             </div>
@@ -443,116 +465,72 @@
          <!-- video call zone ends -->
 
         <!-- Loader starts -->
-        <div class="absolute top-0 left-0 flex flex-col justify-center items-center w-full h-full  bg-opacity-80" id="loading">
+        <!-- <div class="absolute top-0 left-0 flex flex-col justify-center items-center w-full h-full  bg-opacity-80" id="loading">
             <i class="fa-solid fa-spinner animate-spin text-4xl text-gray-500"></i>
             <p class="text-gray-500">Loading...</p>
-        </div>
+        </div> -->
         <!-- Loader ends -->  
          
-        <div class="user-status  absolute flex top-0 left-0 h-full w-full bg-black py-2">
-            <div class="container mx-auto w-full gap-2 bg-white dark:bg-gray-800    flex flex-col ">
-                 <!-- Main slider -->
-                    <div id="main-slider" class="relative flex w-screen h-full overflow-auto snap-x snap-mandatory scrollbar-hide">
-                        <div class="slide w-full h-full flex transition-transform duration-300">
-                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
-                                <h3 class="text-lg font-semibold">Card 1</h3>
-                                <p>This is the first card.</p>
-                            </div>
-                            
-                        </div>
-                        <div class="slide w-full h-full flex transition-transform duration-300">
-                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
-                                <h3 class="text-lg font-semibold">Card 1</h3>
-                                <p>This is the first card.</p>
-                            </div>
-                          
-                        </div>
-                        <div class="slide w-full h-full flex transition-transform duration-300">
-                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
-                                <h3 class="text-lg font-semibold">Card 1</h3>
-                                <p>This is the first card.</p>
-                            </div>
-                           
-                        </div>
-                        <div class="slide w-full h-full flex transition-transform duration-300">
-                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
-                                <h3 class="text-lg font-semibold">Card 1</h3>
-                                <p>This is the first card.</p>
-                            </div>
-                           
-                        </div>
-                        <div class="slide w-full h-full flex transition-transform duration-300">
-                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
-                                <h3 class="text-lg font-semibold">Card 1</h3>
-                                <p>This is the first card.</p>
-                            </div>
-                            
-                        </div>
-                        <div class="slide w-full h-full flex transition-transform duration-300">
-                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
-                                <h3 class="text-lg font-semibold">Card 1</h3>
-                                <p>This is the first card.</p>
-                            </div>
-                            
-                        </div>
-                        <div class="slide w-full h-full flex transition-transform duration-300">
-                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
-                                <h3 class="text-lg font-semibold">Card 1</h3>
-                                <p>This is the first card.</p>
-                            </div>
-                          
-                        </div>
-                        <div class="slide w-full h-full flex transition-transform duration-300">
-                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
-                                <h3 class="text-lg font-semibold">Card 1</h3>
-                                <p>This is the first card.</p>
-                            </div>
-                           
-                        </div>
-                        <div class="slide w-full h-full flex transition-transform duration-300">
-                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
-                                <h3 class="text-lg font-semibold">Card 1</h3>
-                                <p>This is the first card.</p>
-                            </div>
-                           
-                        </div>
-                        <div class="slide w-full h-full flex transition-transform duration-300">
-                            <div class="card w-full h-full mx-2 bg-white shadow-lg p-4 rounded">
-                                <h3 class="text-lg font-semibold">Card 1</h3>
-                                <p>This is the first card.</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-            
+        <div class="user-status  absolute flex top-0 left-0 h-full w-full  dark:bg-black hidden">
+            <div class="w-full bg-white dark:bg-gray-800 px-5  overflow-hidden py-2 justify-center items-center  flex flex-col ">
                 
-                <!-- Next/Previous buttons -->
-                <button id="prev" class="absolute left-5 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white p-2 rounded">Prev</button>
-                <button id="next" class="absolute right-5 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white p-2 rounded">Next</button>
-        
-                <!-- Thumbnail slider -->
-                <div class="flex justify-center mt-4" id="thumbs">
-                    <div class="thumb cursor-pointer w-10 h-2 dark:bg-gray-200 rounded mx-1">
-                        <h4 class="text-center dark:text-white"></h4>
+                
+                    <div class="relative w-2/3 h-full flex flex-col py-5 " id="slider-container" >
+                        <div id="main-slider" class="h-full overflow-hidden transition-transform duration-300">
+                            <div class="slide w-full  text-white" style="transform: translateX(0);">
+                               <img src="incoming-contact.jpg" class="w-3/5 object-cover h-full" alt="">
+                            </div>
+                            <div class="slide w-full text-white" style="transform: translateX(100%);">
+                               <img src="outgoing-contact.jpg" class="w-3/5 object-cover h-full" alt="">
+                            </div>
+                            <div class="slide w-full  text-white" style="transform: translateX(100%);">
+                                <img src="incoming-contact.jpg" class="w-3/5 object-cover h-full" alt="">
+                            </div>
+                            <div class="slide w-full text-white" style="transform: translateX(100%);">
+                               <img src="outgoing-contact.jpg" class="w-3/5 object-cover h-full" alt="">
+                            </div>
+                        </div>
+                    
+                        <button id="prev" class="absolute left-0 h-2/3 top-1/2 -translate-y-1/2 bg-black opacity-5 text-white p-4 rounded-lg"> <i class="fa fa-backward-step"></i> </button>
+                        <button id="next" class="absolute right-0 h-2/3 top-1/2 -translate-y-1/2 bg-black opacity-5 text-white p-4 rounded-lg"><i class="fa fa-forward-step"></i></button>
+                    
+                        <div class="flex justify-center mt-4" id="thumbs">
+                            <div class="thumb cursor-pointer w-12 mx-1 h-2 text-center bg-blue-500 text-white rounded"></div>
+                            <div class="thumb cursor-pointer w-12 mx-1 h-2 text-center bg-gray-300 text-black rounded"></div>
+                            <div class="thumb cursor-pointer w-12 mx-1 h-2 text-center bg-gray-300 text-black rounded"></div>
+                            <div class="thumb cursor-pointer w-12 mx-1 h-2 text-center bg-gray-300 text-black rounded"></div>
+                        </div>
+
+                        
                     </div>
-                    <div class="thumb cursor-pointer w-10 h-2 dark:bg-gray-200 rounded mx-1">
-                        <h4 class="text-center"></h4>
+                    
+                    <div class="chat-footer   items-center w-full  border-1 border-gray-500 dark:bg-gray-800 justify-center  mt-4 flex gap-2">
+                        <div class="md:w-2/5 flex  items-center gap-2">
+                            <i class="fa-solid fa-paperclip text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
+                            <i class="fa-solid fa-smile text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
+                            <i class="fa-solid fa-camera text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
+                            <input name="" class="w-full p-2  bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200" id="" placeholder="message here ..." />
+                            <i class="fa-brands fa-telegram text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
+                        </div>
                     </div>
-                    <div class="thumb cursor-pointer w-10 h-2 dark:bg-gray-200 rounded mx-1">
-                        <h4 class="text-center dark:text-white"></h4>
-                    </div>
-                    <div class="thumb cursor-pointer w-10 h-2 dark:bg-gray-200 rounded mx-1">
-                        <h4 class="text-center dark:text-white"></h4>
+                  
+            </div>
+        </div>
+
+        <!-- Forwarding Modal -->
+        <div id="forwardingModal" class="modal w-full absolute inset-0 flex items-center justify-center hidden bg-black bg-opacity-50  z-50">
+            <div class="modal-content w-80 bg-white rounded-lg shadow-lg m-4">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold mb-4">Forward Message To ...</h2>
+                    <!-- Search Input -->
+                    <input type="text" id="searchContacts" placeholder="Search Contacts..." class="border rounded p-1 mb-4 w-full">
+                    <div id="contactsList" class="contactsList max-h-80 overflow-y-auto">
+                        <!-- Contacts will be appended here -->
                     </div>
                 </div>
-                <div class="chat-footer  border-1 border-gray-500 dark:bg-gray-800 w-full  flex items-center gap-2">
-                    <div class="flex w-full items-center gap-2">
-                        <i class="fa-solid fa-paperclip text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
-                        <i class="fa-solid fa-smile text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
-                        <i class="fa-solid fa-camera text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
-                        <input name="" class="w-full p-2  bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200" id="" placeholder="message here ..." />
-                        <i class="fa-brands fa-telegram text-2xl cursor-pointer text-gray-600 dark:text-gray-300"></i>
-                    </div>
+                <div class="px-4 py-2">
+                    <button id="sendButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Send</button>
+                    <button id="closeModal" class="ml-2 bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">Close</button>
                 </div>
             </div>
         </div>
